@@ -1,0 +1,30 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Minecraft Seed Converter</title>
+<style type="text/css">
+	body	{background-color: DarkSeaGreen; font-family: Cambria, Arial}
+	table, th, td {border: 1px solid Black; border-collapse: collapse}
+</style>
+<script>
+  function hashCode(id) {
+    let s = document.getElementById(id).innerHTML;
+    let h;
+    for (let i = 0; i < s.length; i++) 
+      h = Math.imul(31, h) + s.charCodeAt(i) | 0;
+    return h;
+  }
+</script>
+</head>
+
+<body>
+<h2>Minecraft Seed Converter: String to Number</h2>
+<p>
+    <b>USAGE:</b> First change the <b>Seed as String</b> value, then click the <b>Seed as Number</b> label.
+</p>
+<table>
+    <tr><td><b>Seed as String</b></td><td id="seed" contenteditable="true">change me</td></tr>
+    <tr><td onclick="nextSibling.innerHTML=hashCode('seed')"><b>Seed as Number</b></td><td>&lt;-- click</td></tr>
+</table>
+</body>
+</html>
