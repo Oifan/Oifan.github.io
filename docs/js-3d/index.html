@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>3D Image</title>
+<link rel="shortcut icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQAgMAAABinRfyAAAADFBMVEVqOJb2zf+HT7i3g9/46iIbAAAARUlEQVR4AWNgYGBaxaAAJXYxaIAILQ6GXQxMCkAWA2PRKoZVrRFAYmkMiBUHJBb9AhFNQGJVFxfDqgWrlIAsIPfVKq4uAEwtGus9WP75AAAAAElFTkSuQmCC">
+<style type="text/css">
+    body {
+        background-color: #807870;
+        position: fixed; /* Prevent overscroll */
+        margin: 0;
+        padding: 0;
+    }
+    /* Common styles for overlay and images */
+    .image-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 5;
+    }
+    .canvas3d {
+        position: absolute;
+        width: 960;
+        height: 960;
+        z-index: 5;
+    }
+</style> 
+<script src="3d_image.js"></script><!-- from:  https://poki.com/en/g/blocky-universe -->
+</head>
+
+<body>
+
+<div id="image-overlay" class="image-overlay">
+    <canvas id="canvas3d"></canvas>
+</div>
+
+<script>
+    const canvas = document.getElementById("canvas3d");
+    let imageURL = "darkcrystalAI.webp";		// from:  https://lookingglassfactory.com/blog/depth-maps-best-practices
+    const depthURL = "darkcrystalAI_depth.webp";
+    window.my_image3D = new Image3D(canvas, imageURL, depthURL);
+    window.my_image3D.resize(window.innerWidth, window.innerHeight);
+</script>
+
+</body>
+</html>
