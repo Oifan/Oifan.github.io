@@ -37,10 +37,9 @@
 </div>
 
 <script>
-    const canvas = document.getElementById("canvas3d");
-    let imageURL = "darkcrystalAI.webp";		// from:  https://lookingglassfactory.com/blog/depth-maps-best-practices
+    const imageURL = "darkcrystalAI.webp";		// from:  https://lookingglassfactory.com/blog/depth-maps-best-practices
     const depthURL = "darkcrystalAI_depth.webp";
-    window.my_image3D = new Image3D(canvas, imageURL, depthURL);
+    window.my_image3D = new Image3D(document.getElementById("canvas3d"), imageURL, depthURL);
     window.my_image3D.resize(window.innerWidth, window.innerHeight);
 </script>
 
