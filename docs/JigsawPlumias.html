@@ -285,10 +285,10 @@ img {
 function openGroup(evt, groupName) {
   console.log(`[index.html]  openGroup(${groupName}) invoked`);
   var tabcontent = document.getElementsByClassName("tabcontent");
-  var tablinks = document.getElementsByClassName("tablinks");
   for (let i = 0; i < tabcontent.length; i++) {
     tabcontent[i].style.display = "none";
   }
+  var tablinks = document.getElementsByClassName("tablinks");
   for (let i = 0; i < tablinks.length; i++) {
     tablinks[i].className = tablinks[i].className.replace(" active", "");
   }
