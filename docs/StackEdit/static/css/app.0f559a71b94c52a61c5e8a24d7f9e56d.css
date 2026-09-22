@@ -1871,7 +1871,7 @@ table {
 
 td,
 th {
-  border-right: 1px solid #dcdcdc;
+  border-right: 1px solid #a0c0a0;
   padding: 8px 12px
 }
 
@@ -1881,7 +1881,7 @@ th:last-child {
 }
 
 td {
-  border-top: 1px solid #dcdcdc
+  border-top: 1px solid #a0c0a0
 }
 
 mark {
