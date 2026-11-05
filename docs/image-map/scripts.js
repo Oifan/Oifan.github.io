@@ -511,9 +511,9 @@ function SummerHtmlImageMapCreator() {
 				return this;
 			},
 			preview : (function() {
-				img.setAttribute('usemap', '#map');
+				img.setAttribute('usemap', '#image-map');
 				map = document.createElement('map');
-				map.setAttribute('name', 'map');
+				map.setAttribute('name', 'image-map');
 				container.appendChild(map);
 				
 				return function() {
@@ -652,8 +652,8 @@ function SummerHtmlImageMapCreator() {
 					if (!objects.length) {
 						return '0 objects';
 					}
-					html_code += utils.encode('<img src="' + filename + '" alt="" usemap="#map" />') +
-						'<br />' + utils.encode('<map name="map">') + '<br />';
+					html_code += utils.encode('<img src="' + filename + '" alt="" usemap="#image-map" />') +
+						'<br />' + utils.encode('<map name="image-map">') + '<br />';
 					utils.foreachReverse(objects, function(x) {
 						html_code += '&nbsp;&nbsp;&nbsp;&nbsp;' + utils.encode(x.toString()) + '<br />';
 					});
@@ -1694,16 +1694,16 @@ function SummerHtmlImageMapCreator() {
 	Rect.prototype.toString = function() { //to html map area code
 		var x2 = this.params.x + this.params.width,
 			y2 = this.params.y + this.params.height;
-		return '<area shape="rect" coords="'
-			+ this.params.x + ', '
-			+ this.params.y + ', '
-			+ x2 + ', '
-			+ y2
-			+ '"'
+		return '<area'
 			+ (this.href ? ' href="' + this.href + '"' : '')
 			+ (this.alt ? ' alt="' + this.alt + '"' : '')
 			+ (this.title ? ' title="' + this.title + '"' : '')
-			+ ' />';
+			+ ' shape="rect" coords="'
+			+ this.params.x + ','
+			+ this.params.y + ','
+			+ x2 + ','
+			+ y2
+			+ '" />';
 	};
 	
 	Rect.createFromSaved = function(params) {
@@ -1951,14 +1951,15 @@ function SummerHtmlImageMapCreator() {
 	}
 
 	Circle.prototype.toString = function() { //to html map area code
-		return '<area shape="circle" coords="'
-			+ this.params.cx + ', '
-			+ this.params.cy + ', '
-			+ this.params.radius
-			+ '"'
+		return '<area'
 			+ (this.href ? ' href="' + this.href + '"' : '')
 			+ (this.alt ? ' alt="' + this.alt + '"' : '')
 			+ (this.title ? ' title="' + this.title + '"' : '')
+			+ ' shape="circle" coords="'
+			+ this.params.cx + ','
+			+ this.params.cy + ','
+			+ this.params.radius
+			+ '"'
 			+ ' />';
 	};
 
@@ -2239,16 +2240,16 @@ function SummerHtmlImageMapCreator() {
 		for (var i = 0, count = this.params.length, str = ''; i < count; i++) {
 			str += this.params[i];
 			if (i != count - 1) {
-				str += ', ';
+				str += ',';
 			}
 		}
-		return '<area shape="poly" coords="'
-			+ str
-			+ '"'
+		return '<area'
 			+ (this.href ? ' href="' + this.href + '"' : '')
 			+ (this.alt ? ' alt="' + this.alt + '"' : '')
 			+ (this.title ? ' title="' + this.title + '"' : '')
-			+ ' />';
+			+ ' shape="poly" coords="'
+			+ str
+			+ '" />';
 	};
 	
 	Polygon.createFromSaved = function(params) {
